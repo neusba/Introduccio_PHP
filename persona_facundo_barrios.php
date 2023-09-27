@@ -12,7 +12,7 @@
     <title>Persona</title>
 </head>
 <body>
-    <?php                                   // apertura del apartado de código PHP
+    <?php                                   // apertura del apartado de código PHP :D
         $nomAlumne = "Facundo";             // las variables se declaran como $variable
         $cognomAlumn = "Barrios";           // no es tipado, por lo que simplemente se le asignan los valores
         $edat = 27;                         // sin declarar el tipo. se respeta que los string van entre comillas
