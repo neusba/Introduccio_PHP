@@ -7,8 +7,8 @@
 </head>
 <body>
     <?php
-        $planta = [5];     // L'hotel té 5 plantes
-        $habitacions = [10];   // Cada planta té 10 habitacions
+        $planta = [1, 2, 3, 4, 5];     // L'hotel té 5 plantes
+        $habitacions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];   // Cada planta té 10 habitacions
     ?>
     <div>
         <ul>
