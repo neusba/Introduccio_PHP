@@ -6,32 +6,44 @@
     <title>Gestió d'hotel</title>
 </head>
 <body>
+    <!-- Creación de variables -->
     <?php
-        $planta = [1, 2, 3, 4, 5];     // L'hotel té 5 plantes
-        $habitacions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];   // Cada planta té 10 habitacions
+        $plantas = array(5);    // L'hotel té 5 plantes
+        var_dump($plantas);
     ?>
+    <!-- Contenedor que tiene lo que se imprimirá --> 
     <div>
         <ul>
-        <?php
-            for ($i = 0; $i <= $planta; $i++) {
-                for ($j = 0; $j <= $habitacions; $j++) {
-        ?>
-            <li>
+        <li>
+            <!-- Lógica -->
             <?php
-                $clients = rand(0, 4);
-                array_push($habitacions[$j], $clients);
-                if ($clients == 0) {
-                    echo "L'habitació ${j} de la planta ${i} està buida";
-                } else if ($comensals == 4) {
-                    echo "L'habitació ${j} de la planta ${i} està plena";
-                } else {
-                    echo "L'habitació ${j} de la planta ${i} té ${clients} persones";
+                foreach ($plantas as $piso) {
+                    creaHabitaciones();
                 }
+
+                // Creamos 10 habitacion por cada piso
+                function creaHabitaciones() {
+                    $habitacions = array();
+                    for ($i=0; $i<=10; $i++) {
+                        $comensals = rand(0, 4);
+                        $habitacions[] = $comensals;
+                        cantidad($comensals, $habitacions[$i]);
+                    }
                 }
-            }
+                
+                // Imprimos la cantidad de comensales
+                function cantidad($comensals, $habitacio) {
+                    if ($comensals == 0) {
+                        echo `L'habitació ${habitacio} està buida`;
+                    } else if ($comensals == 4) {
+                        echo `L'habitació ${habitacio} està plena`;
+                    } else {
+                        echo `L'habitació ${habitacio} té ${comensals}`;
+                    }
+                }
             ?>
-            </li>
-        </ul>
+        </li>
+        </ul>  
     </div>
 </body>
 </html>
