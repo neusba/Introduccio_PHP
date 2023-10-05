@@ -6,44 +6,45 @@
     <title>Gestió d'hotel</title>
 </head>
 <body>
-    <!-- Creación de variables -->
-    <?php
-        $plantas = array(5);    // L'hotel té 5 plantes
-        var_dump($plantas);
-    ?>
-    <!-- Contenedor que tiene lo que se imprimirá --> 
-    <div>
-        <ul>
-        <li>
-            <!-- Lógica -->
-            <?php
-                foreach ($plantas as $piso) {
-                    creaHabitaciones();
-                }
-
-                // Creamos 10 habitacion por cada piso
-                function creaHabitaciones() {
-                    $habitacions = array();
-                    for ($i=0; $i<=10; $i++) {
-                        $comensals = rand(0, 4);
-                        $habitacions[] = $comensals;
-                        cantidad($comensals, $habitacions[$i]);
-                    }
-                }
-                
-                // Imprimos la cantidad de comensales
-                function cantidad($comensals, $habitacio) {
-                    if ($comensals == 0) {
-                        echo `L'habitació ${habitacio} està buida`;
-                    } else if ($comensals == 4) {
-                        echo `L'habitació ${habitacio} està plena`;
-                    } else {
-                        echo `L'habitació ${habitacio} té ${comensals}`;
-                    }
-                }
-            ?>
-        </li>
-        </ul>  
+	<div>
+		<ul>
+		<?php
+			$plantas = array();	// Declaramos el array que contendrá las plantas del hotel
+			for ($i=0; $i<=5; $i++) {	// Específicamos en el for el número de plantas que queremos que tenga el hotel
+				$plantas[] = creaHabitacion();	// Por cada planta, creamos su array de habitaciones correspondientes
+			};
+			
+			// Función que crea las habitaciones en cada planta
+			function creaHabitacion() {
+				$habitaciones = array();	// Array que contendrá las habitaciones
+				for ($i=0; $i<=10; $i++) {
+		?>
+			<li>
+		<?php
+				$comensales = rand(0, 4);
+				$habitaciones[] = $comensales;	// Por cada habitacion del array asignamos una cantidad de comensales
+				// Creamos una función de imprimá por pantalla el resultado
+				imprimeCantidad($comensales, $i);
+				}
+			};
+		?>
+			</li>
+		</ul>
     </div>
+	<?php
+	
+	// Función que muestra cuantos comensales hay en cada habitación de cada planta
+	function imprimeCantidad($comensales, $i) {
+		if ($comensales == 0) {
+			echo "La habitación ${i} està buida";
+		} elseif ($comensales == 4) {
+			echo "La habitación ${i} està plena";
+		} else {
+			echo "La habitación ${i} tiene ${comensales} comensales";
+		}
+	};
+	?>
 </body>
 </html>
+
+
