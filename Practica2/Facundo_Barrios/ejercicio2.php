@@ -34,7 +34,7 @@
             for ($i=0; $i<5; $i++) {
                 for ($j=0; $j<10; $j++) {
         ?>
-        <li> A l'habitació <?= $j; ?> de la planta <?= $i; ?> <?= quantity(hotel[$i][$j]); ?> </li>
+        <li> A l'habitació <?= $j; ?> de la planta <?= $i; ?> <?= quantity($hotel[$i][$j]); ?> </li>
         <?php 
                 }
             }
